@@ -102,3 +102,12 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Thesis reference docs
+reference_data/
+
+# .idea folder
+.idea/
+
+# jupyter notebook sample folder
+sample_jupyter_notebook/
