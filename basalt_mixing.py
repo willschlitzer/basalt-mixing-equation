@@ -1,3 +1,9 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+from sample_data import ratio_ratio_sample1_data, ratio_ratio_sample2_data
+
 def ratio_ratio_mixing(sample1_data, sample2_data):
     """Creates the variables for 2 element or isotope ratios"""
     x1 = sample1_data[0] / sample1_data[1]
@@ -33,13 +39,17 @@ def mixer(sample1_data, sample2_data):
         # Determines the y-value based upon x-value
         y = (-(A * x) - D) / (B * x + C)
         # Appends current percentage to list
-        mixing_data.append([x, y])
+        mixing_data.append([current_step, x, y])
         # Advances to next mixing percentage
         current_step += step_length
-    return mixing_data
+    mixing_data_array = np.array(mixing_data)
+    mixing_data_df = pd.DataFrame(mixing_data_array, columns=['current_step', 'x', 'y'])
+    return mixing_data_df
 
 
 # A demonstration of test data
-sample1_data = [12.73, 15, 12.73, 5.56]
-sample2_data = [1.39, 6, 1.39, 2.06]
-print(mixer(sample1_data, sample2_data))
+df = mixer(ratio_ratio_sample1_data, ratio_ratio_sample2_data)
+df.plot('x', 'y')
+print(df)
+plt.show()
+
