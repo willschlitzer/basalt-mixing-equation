@@ -31,3 +31,5 @@ B = 0<br>
 C = x<sub>1</sub> - x<sub>2</sub><br>
 D = x<sub>2</sub>*y<sub>1</sub> - x<sub>1</sub>*y<sub>2</sub><br>
 
+***References***<br>
+Langmuir, C. H., Vocke, J. R., Hanson, G. N., & Hart, S. R. (1978). A General Mixing Equation with Applications to Icelandic Basalts. Earth and Planetary Science Letters , 37, 380-392.
