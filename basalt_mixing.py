@@ -43,6 +43,21 @@ def ratio_element_mixing(sample1_data, sample2_data):
     return x1, y1, x2, y2, A, B, C, D
 
 
+def element_element_mixing(sample1_data, sample2_data):
+    """Create the variables for an element-element mixing"""
+    x1 = sample1_data[0]
+    y1 = sample1_data[1]
+    x2 = sample2_data[0]
+    y2 = sample2_data[1]
+    # a=1. b=1 since the denominators for the x-axis, y-axis are 1
+    # A, B, C, D are coefficients for the mixing equation
+    A = y2 - y1
+    B = 0
+    C = x1 - x2
+    D = x2 * y1 - x1 * y2
+    return x1, y1, x2, y2, A, B, C, D
+
+
 def mixer(sample1_data, sample2_data):
     """Generates the mixing data based upon the sample"""
     # The mixing percentage elapsed between calculations
