@@ -1,4 +1,5 @@
 **Basalt Mixing Equation**<br>
+*Current DOI*:
 [![DOI](https://zenodo.org/badge/141566218.svg)](https://zenodo.org/badge/latestdoi/141566218)<br>
 A short script that produces mixing data for the elemental and isotope mixing equation in Charles Langmuir's 1978 paper 
 "A general mixing equation with applications to Icelandic basalts."
@@ -34,3 +35,6 @@ D = x<sub>2</sub>*y<sub>1</sub> - x<sub>1</sub>*y<sub>2</sub><br>
 
 ***References***<br>
 Langmuir, C. H., Vocke, J. R., Hanson, G. N., & Hart, S. R. (1978). A General Mixing Equation with Applications to Icelandic Basalts. Earth and Planetary Science Letters , 37, 380-392.
+
+***Release History***<br>
+v0.0.1.1 [![DOI](https://zenodo.org/badge/141566218.svg)](https://zenodo.org/badge/latestdoi/141566218)<br>
