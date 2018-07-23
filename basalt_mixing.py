@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 class BasaltMixing:
     def __init__(self, step_length):
         self.step_length = step_length
-        if not os.path.isdir('data/'):
-            os.mkdir('data')
+        if not os.path.isdir("data/"):
+            os.mkdir("data")
 
     def ratio_ratio_mixing(self, sample1_data, sample2_data):
         """Creates the variables for 2 element or isotope ratios"""
@@ -77,8 +77,8 @@ class BasaltMixing:
         self.mixing_data_df = pd.DataFrame(
             self.mixing_data_array, columns=["percent_mixed", "x", "y"]
         )
-        self.mixing_data_df.to_csv('data/run_data.csv')
+        self.mixing_data_df.to_csv("data/run_data.csv")
 
     def mixer_plot(self):
-        self.mixing_data_df.plot('x', 'y')
-        plt.savefig('data/run_chart.png')
+        self.mixing_data_df.plot("x", "y")
+        plt.savefig("data/run_chart.png")
