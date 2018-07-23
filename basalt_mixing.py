@@ -1,10 +1,14 @@
 import numpy as np
 import pandas as pd
+import os
+import matplotlib.pyplot as plt
 
 
 class BasaltMixing:
     def __init__(self, step_length):
         self.step_length = step_length
+        if not os.path.isdir('data/'):
+            os.mkdir('data')
 
     def ratio_ratio_mixing(self, sample1_data, sample2_data):
         """Creates the variables for 2 element or isotope ratios"""
@@ -59,16 +63,22 @@ class BasaltMixing:
         current_step = 0  # 0% mixed at the beginning
         # Creates an empty list that will hold the data
         self.mixing_data = []
-        while current_step < 1.001:
+        while current_step < 1.00001:
             # Creates the current x-value based upon mixing percentage
             x = self.x1 * current_step + self.x2 * (1 - current_step)
             # Determines the y-value based upon x-value
             y = (-(self.A * x) - self.D) / (self.B * x + self.C)
             # Appends current percentage to list
-            self.mixing_data.append([current_step, x, y])
+            percent_mixed = current_step * 100
+            self.mixing_data.append([percent_mixed, x, y])
             # Advances to next mixing percentage
             current_step += self.step_length
         self.mixing_data_array = np.array(self.mixing_data)
         self.mixing_data_df = pd.DataFrame(
-            self.mixing_data_array, columns=["current_step", "x", "y"]
+            self.mixing_data_array, columns=["percent_mixed", "x", "y"]
         )
+        self.mixing_data_df.to_csv('data/run_data.csv')
+
+    def mixer_plot(self):
+        self.mixing_data_df.plot('x', 'y')
+        plt.show()

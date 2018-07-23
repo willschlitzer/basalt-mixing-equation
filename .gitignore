@@ -111,3 +111,6 @@ reference_data/
 
 # jupyter notebook sample folder
 sample_jupyter_notebook/
+
+# data folder
+data/
