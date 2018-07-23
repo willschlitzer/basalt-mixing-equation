@@ -1,5 +1,5 @@
-# Basalt Mixing Equation
-[![DOI](https://zenodo.org/badge/141566218.svg)](https://zenodo.org/badge/latestdoi/141566218)
+**Basalt Mixing Equation**<br>
+[![DOI](https://zenodo.org/badge/141566218.svg)](https://zenodo.org/badge/latestdoi/141566218)<br>
 A short script that produces mixing data for the elemental and isotope mixing equation in Charles Langmuir's 1978 paper 
 "A general mixing equation with applications to Icelandic basalts."
 
