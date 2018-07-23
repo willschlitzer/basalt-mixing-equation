@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-class BasaltMixing():
 
+class BasaltMixing:
     def __init__(self, step_length):
         self.step_length = step_length
 
@@ -24,7 +24,6 @@ class BasaltMixing():
         self.C = a2 * b1 * self.x1 - a1 * b2 * self.x2
         self.D = a1 * b2 * self.x2 * self.y1 - a2 * b1 * self.x1 * self.y2
 
-
     def ratio_element_mixing(self, sample1_data, sample2_data):
         """Creates the variables for a ratio/ratio and element"""
         self.x1 = sample1_data[0]
@@ -41,7 +40,6 @@ class BasaltMixing():
         self.C = a2 * x1 - a1 * x2
         self.D = a1 * x2 * y1 - a2 * x1 * y2
 
-
     def element_element_mixing(self, sample1_data, sample2_data):
         """Create the variables for an element-element mixing"""
         self.x1 = sample1_data[0]
@@ -54,7 +52,6 @@ class BasaltMixing():
         self.B = 0
         self.C = x1 - x2
         self.D = x2 * y1 - x1 * y2
-
 
     def mixer(self):
         """Generates the mixing data based upon the sample"""
@@ -72,7 +69,6 @@ class BasaltMixing():
             # Advances to next mixing percentage
             current_step += self.step_length
         self.mixing_data_array = np.array(self.mixing_data)
-        self.mixing_data_df = pd.DataFrame(self.mixing_data_array, columns=["current_step", "x", "y"])
-
-
-
+        self.mixing_data_df = pd.DataFrame(
+            self.mixing_data_array, columns=["current_step", "x", "y"]
+        )
