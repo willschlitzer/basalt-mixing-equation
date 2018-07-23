@@ -1,8 +1,6 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 
-from sample_data import ratio_ratio_sample1_data, ratio_ratio_sample2_data
 
 
 def ratio_ratio_mixing(sample1_data, sample2_data):
@@ -81,8 +79,4 @@ def mixer(sample1_data, sample2_data):
     return mixing_data_df
 
 
-# A demonstration of test data
-df = mixer(ratio_ratio_sample1_data, ratio_ratio_sample2_data)
-df.plot("x", "y")
-print(df)
-plt.show()
+
