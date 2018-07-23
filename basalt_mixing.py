@@ -81,4 +81,4 @@ class BasaltMixing:
 
     def mixer_plot(self):
         self.mixing_data_df.plot('x', 'y')
-        plt.show()
+        plt.savefig('data/run_chart.png')
