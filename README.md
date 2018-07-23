@@ -9,8 +9,8 @@ A short script that produces mixing data for the elemental and isotope mixing eq
 *Ax + Bxy + Cy + D = 0*<br>
 
 **The variables for ratio-ratio mixing**<br>
-a<sub>1</sub>= x-axis ratio denominator, a<sub>2</sub>=y-axis ratio denominator<br>
-b<sub>1</sub>= y-axis ratio denominator, b<sub>2</sub>=x-axis ratio denominator<br>
+a<sub>1</sub>= y<sub>1</sub> ratio denominator, a<sub>2</sub>=y<sub>2</sub> ratio denominator<br>
+b<sub>1</sub>= x<sub>1</sub> ratio denominator, b<sub>2</sub>=x<sub>2</sub> ratio denominator<br>
 
 A  = a<sub>2</sub>*b<sub>1</sub>*y<sub>2</sub> - a<sub>1</sub>*b<sub>2</sub>*y<sub>1</sub><br>
 B = a<sub>1</sub>*b<sub>2</sub> - a<sub>2</sub>*b<sub>1</sub><br>
@@ -19,7 +19,7 @@ D = a<sub>1</sub>*b<sub>2</sub>*x<sub>2</sub>*y<sub>1</sub> - a<sub>2</sub>*b<su
 
 **The variables for ratio-element mixing**<br>
 This assumes the x-axis is the element and the y-axis is the ratio<br>
-a<sub>1</sub>= x-axis ratio denominator, a<sub>2</sub>=y-axis ratio denominator<br>
+a<sub>1</sub>= y<sub>1</sub> ratio denominator, a<sub>2</sub>=y<sub>2</sub> ratio denominator<br>
 b<sub>1</sub>, b<sub>2</sub> = 1, 1<br>
 A  = a<sub>2</sub>*y<sub>2</sub> - a<sub>1</sub>*y<sub>1</sub><br>
 B = a<sub>1</sub> - a<sub>2</sub><br>
