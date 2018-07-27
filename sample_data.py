@@ -7,6 +7,8 @@
 # y-axis La/Sm
 ratio_ratio_sample1_data = [12.94, 18.91, 12.94, 5.73]
 ratio_ratio_sample2_data = [1.56, 1.08, 1.56, 2.36]
+ratio_ratio_sample1_label = 'La/Nb'
+ratio_ratio_sample2_label = 'La/Sm'
 
 # data for ratio-element mixing
 # x-axis La
