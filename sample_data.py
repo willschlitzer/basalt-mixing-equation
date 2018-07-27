@@ -15,9 +15,14 @@ ratio_ratio_sample2_label = 'La/Sm'
 # y-axis La/Sm
 ratio_element_sample1_data = [12.94, 12.94, 5.73]
 ratio_element_sample2_data = [1.56, 1.56, 2.35]
+ratio_element_sample1_label = 'La'
+ratio_element_sample2_label = 'La/Sm'
+
 
 # data for element-element mixing
 # x-axis La
 # y-axis Sm
 element_element_sample1_data = [12.94, 5.73]
 element_element_sample2_data = [1.56, 2.35]
+element_element_sample1_label = 'La'
+element_element_sample2_label = 'Sm'
