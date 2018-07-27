@@ -5,60 +5,87 @@ import matplotlib.pyplot as plt
 
 
 class BasaltMixing:
-    def __init__(self, step_length):
+    def __init__(self, step_length, sample1_data, sample1_label, sample2_data, sample2_label):
         self.step_length = step_length
         if not os.path.isdir("data/"):
             os.mkdir("data")
+        self.sample1_data = sample1_data
+        self.sample1_label = sample1_label
+        self.sample2_data = sample2_data
+        self.sample2_label = sample2_label
+        self.data_validity_test()
 
-    def ratio_ratio_mixing(self, sample1_data, sample2_data):
+
+    def data_validity_test(self):
+        """Determines if sample data only contains integers or floats, and is the correct length"""
+        for item in self.sample1_data + self.sample2_data:
+            try:
+                float(item)
+            except:
+                print(str(item) + " is not a valid concentration")
+                return
+        self.length1 = len(self.sample1_data)
+        self.length2 = len(self.sample2_data)
+        if (self.length1 == self.length2) and ((self.length1 == 4) or (self.length1 == 3) or (self.length1 == 2)):
+            self.mixing_model_selector()
+
+
+    def mixing_model_selector(self):
+        "Runs the correct mixing model based upon the length of the data"
+        if self.length1 == 4:
+            self.ratio_ratio_mixing()
+        elif self.length1 == 3:
+            self.ratio_elelement_mixing()
+        else:
+            self.element_element_mixing()
+
+
+    def ratio_ratio_mixing(self):
         """Creates the variables for 2 element or isotope ratios"""
-        assert len(sample1_data) == 4 and len(sample2_data) == 4
-        self.x1 = sample1_data[0] / sample1_data[1]
-        self.y1 = sample1_data[2] / sample1_data[3]
-        self.x2 = sample2_data[0] / sample2_data[1]
-        self.y2 = sample2_data[2] / sample2_data[3]
+        self.x1 = self.sample1_data[0] / self.sample1_data[1]
+        self.y1 = self.sample1_data[2] / self.sample1_data[3]
+        self.x2 = self.sample2_data[0] / self.sample2_data[1]
+        self.y2 = self.sample2_data[2] / self.sample2_data[3]
         # a1 and a2 are the denominators for the y-axis ratios
         # b1 and b2 are the denominators for the x-axis ratios
-        a1 = sample1_data[3]
-        b1 = sample1_data[1]
-        a2 = sample2_data[3]
-        b2 = sample2_data[1]
+        a1 = self.sample1_data[3]
+        b1 = self.sample1_data[1]
+        a2 = self.sample2_data[3]
+        b2 = self.sample2_data[1]
         # A, B, C, D are coefficients for the mixing equation
         self.A = a2 * b1 * self.y2 - a1 * b2 * self.y1
         self.B = a1 * b2 - a2 * b1
         self.C = a2 * b1 * self.x1 - a1 * b2 * self.x2
         self.D = a1 * b2 * self.x2 * self.y1 - a2 * b1 * self.x1 * self.y2
 
-    def ratio_element_mixing(self, sample1_data, sample2_data):
+    def ratio_element_mixing(self):
         """Creates the variables for a ratio/ratio and element"""
-        assert len(sample1_data) == 3 and len(sample2_data) == 3
-        self.x1 = sample1_data[0]
-        self.y1 = sample1_data[1] / sample2_data[2]
-        self.x2 = sample2_data[0]
-        self.y2 = sample2_data[1] / sample3_data[2]
+        self.x1 = self.sample1_data[0]
+        self.y1 = self.sample1_data[1] / self.sample2_data[2]
+        self.x2 = self.sample2_data[0]
+        self.y2 = self.sample2_data[1] / self.sample3_data[2]
         # b=1 since the denominators for the x-axis are 1
         # a1 and a2 are the denominators for the y-axis ratios
-        a1 = sample1_data[2]
-        a2 = sample2_data[2]
+        a1 = self.sample1_data[2]
+        a2 = self.sample2_data[2]
         # A, B, C, D are coefficients for the mixing equation
-        self.A = a2 * y2 - a1 * y1
+        self.A = a2 * self.y2 - a1 * self.y1
         self.B = a1 - a2
-        self.C = a2 * x1 - a1 * x2
-        self.D = a1 * x2 * y1 - a2 * x1 * y2
+        self.C = a2 * self.x1 - a1 * self.x2
+        self.D = a1 * self.x2 * self.y1 - a2 * self.x1 * self.y2
 
-    def element_element_mixing(self, sample1_data, sample2_data):
+    def element_element_mixing(self):
         """Create the variables for an element-element mixing"""
-        assert len(sample1_data) == 2 and len(sample2_data) == 2
-        self.x1 = sample1_data[0]
-        self.y1 = sample1_data[1]
-        self.x2 = sample2_data[0]
-        self.y2 = sample2_data[1]
+        self.x1 = self.sample1_data[0]
+        self.y1 = self.sample1_data[1]
+        self.x2 = self.sample2_data[0]
+        self.y2 = self.sample2_data[1]
         # a=1. b=1 since the denominators for the x-axis, y-axis are 1
         # A, B, C, D are coefficients for the mixing equation
-        self.A = y2 - y1
+        self.A = self.y2 - self.y1
         self.B = 0
-        self.C = x1 - x2
-        self.D = x2 * y1 - x1 * y2
+        self.C = self.x1 - self.x2
+        self.D = self.x2 * self.y1 - self.x1 * self.y2
 
     def mixer(self):
         """Generates the mixing data based upon the sample"""
