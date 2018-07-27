@@ -12,6 +12,7 @@ class BasaltMixing:
 
     def ratio_ratio_mixing(self, sample1_data, sample2_data):
         """Creates the variables for 2 element or isotope ratios"""
+        assert len(sample1_data) == 4 and len(sample2_data) == 4
         self.x1 = sample1_data[0] / sample1_data[1]
         self.y1 = sample1_data[2] / sample1_data[3]
         self.x2 = sample2_data[0] / sample2_data[1]
@@ -30,6 +31,7 @@ class BasaltMixing:
 
     def ratio_element_mixing(self, sample1_data, sample2_data):
         """Creates the variables for a ratio/ratio and element"""
+        assert len(sample1_data) == 3 and len(sample2_data) == 3
         self.x1 = sample1_data[0]
         self.y1 = sample1_data[1] / sample2_data[2]
         self.x2 = sample2_data[0]
@@ -46,6 +48,7 @@ class BasaltMixing:
 
     def element_element_mixing(self, sample1_data, sample2_data):
         """Create the variables for an element-element mixing"""
+        assert len(sample1_data) == 2 and len(sample2_data) == 2
         self.x1 = sample1_data[0]
         self.y1 = sample1_data[1]
         self.x2 = sample2_data[0]
