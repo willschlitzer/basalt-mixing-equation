@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 
 
 class BasaltMixing:
-    def __init__(self, step_length, sample1_data, sample1_label, sample2_data, sample2_label):
+    def __init__(
+        self, step_length, sample1_data, sample1_label, sample2_data, sample2_label
+    ):
         self.step_length = step_length
         if not os.path.isdir("data/"):
             os.mkdir("data")
@@ -15,16 +17,16 @@ class BasaltMixing:
         self.sample2_label = sample2_label
         self.data_validity_test()
 
-
     def data_validity_test(self):
         """Determines if sample data only contains integers or floats, and is the correct length"""
         for item in self.sample1_data + self.sample2_data:
-            assert (type(item) == float or type(item) == int)
+            assert type(item) == float or type(item) == int
         self.length1 = len(self.sample1_data)
         self.length2 = len(self.sample2_data)
-        if (self.length1 == self.length2) and ((self.length1 == 4) or (self.length1 == 3) or (self.length1 == 2)):
+        if (self.length1 == self.length2) and (
+            (self.length1 == 4) or (self.length1 == 3) or (self.length1 == 2)
+        ):
             self.mixing_model_selector()
-
 
     def mixing_model_selector(self):
         "Runs the correct mixing model based upon the length of the data"
@@ -34,7 +36,6 @@ class BasaltMixing:
             self.ratio_elelement_mixing()
         else:
             self.element_element_mixing()
-
 
     def ratio_ratio_mixing(self):
         """Creates the variables for 2 element or isotope ratios"""
