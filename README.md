@@ -27,7 +27,7 @@ C = a<sub>2</sub>*x<sub>1</sub> - a<sub>1</sub>*x<sub>2</sub><br>
 D = a<sub>1</sub>*x<sub>2</sub>*y<sub>1</sub> - a<sub>2</sub>*x<sub>1</sub>*y<sub>2</sub><br>
 
 **The variables for element mixing**<br>
-a<sub>1</sub>, a<sub>2</sub>, b<sub>1</sub>. b<sub>2</sub> = 1, 1, 1, 1 <br>
+a<sub>1</sub>, a<sub>2</sub>, b<sub>1</sub>, b<sub>2</sub> = 1, 1, 1, 1 <br>
 A  = y<sub>2</sub> - y<sub>1</sub><br>
 B = 0<br>
 C = x<sub>1</sub> - x<sub>2</sub><br>
