@@ -109,8 +109,5 @@ reference_data/
 # .idea folder
 .idea/
 
-# jupyter notebook sample folder
-sample_jupyter_notebook/
-
 # data folder
 data/
