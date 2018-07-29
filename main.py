@@ -4,9 +4,9 @@ from sample_data import *
 ratio_ratio = BasaltMixing(
     step_length=.01,
     sample1_data=string_ratio_ratio_sample1_data,
-    sample1_label=ratio_ratio_sample1_label,
+    x_label=ratio_ratio_x_label,
     sample2_data=ratio_ratio_sample2_data,
-    sample2_label=ratio_ratio_sample2_label,
+    y_label=ratio_ratio_y_label,
 )
 
 ratio_ratio.mixer()

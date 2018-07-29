@@ -6,15 +6,15 @@ import matplotlib.pyplot as plt
 
 class BasaltMixing:
     def __init__(
-        self, step_length, sample1_data, sample1_label, sample2_data, sample2_label
+        self, step_length, sample1_data, x_label, sample2_data, y_label
     ):
         self.step_length = step_length
         if not os.path.isdir("data/"):
             os.mkdir("data")
         self.sample1_data = sample1_data
-        self.sample1_label = sample1_label
+        self.x_label = x_label
         self.sample2_data = sample2_data
-        self.sample2_label = sample2_label
+        self.y_label = y_label
         self.data_validity_test()
 
     def data_validity_test(self):
@@ -58,9 +58,9 @@ class BasaltMixing:
     def ratio_element_mixing(self):
         """Creates the variables for a ratio/ratio and element"""
         self.x1 = self.sample1_data[0]
-        self.y1 = self.sample1_data[1] / self.sample2_data[2]
+        self.y1 = self.sample1_data[1] / self.sample1_data[2]
         self.x2 = self.sample2_data[0]
-        self.y2 = self.sample2_data[1] / self.sample3_data[2]
+        self.y2 = self.sample2_data[1] / self.sample2_data[2]
         # b=1 since the denominators for the x-axis are 1
         # a1 and a2 are the denominators for the y-axis ratios
         a1 = self.sample1_data[2]
