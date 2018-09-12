@@ -20,7 +20,7 @@ class BasaltMixing:
     def data_validity_test(self):
         """Determines if sample data only contains integers or floats, and is the correct length"""
         for item in self.sample1_data + self.sample2_data:
-            assert type(item) == float or type(item) == int
+            assert (type(item) == float) or (type(item) == int):
         self.length1 = len(self.sample1_data)
         self.length2 = len(self.sample2_data)
         if (self.length1 == self.length2) and (
