@@ -19,8 +19,6 @@ class BasaltMixing:
 
     def data_validity_test(self):
         """Determines if sample data only contains integers or floats, and is the correct length"""
-        for item in self.sample1_data + self.sample2_data:
-            assert (type(item) == float) or (type(item) == int):
         self.length1 = len(self.sample1_data)
         self.length2 = len(self.sample2_data)
         if (self.length1 == self.length2) and (
@@ -29,7 +27,7 @@ class BasaltMixing:
             self.mixing_model_selector()
 
     def mixing_model_selector(self):
-        "Runs the correct mixing model based upon the length of the data"
+        """Runs the correct mixing model based upon the length of the data"""
         if self.length1 == 4:
             self.ratio_ratio_mixing()
         elif self.length1 == 3:
@@ -90,7 +88,7 @@ class BasaltMixing:
         current_step = 0  # 0% mixed at the beginning
         # Creates an empty list that will hold the data
         self.mixing_data = []
-        while current_step < 1.00001:
+        while current_step < (1 + self.step_length):
             # Creates the current x-value based upon mixing percentage
             x = self.x1 * current_step + self.x2 * (1 - current_step)
             # Determines the y-value based upon x-value
